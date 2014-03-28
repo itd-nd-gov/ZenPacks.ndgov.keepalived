@@ -1,0 +1,5586 @@
+<?xml version="1.0"?>
+<objects>
+<!-- ('', 'zport', 'dmd', 'Devices', 'Server', 'Linux', 'Load Balancer (Keepalived)') -->
+<object id='/zport/dmd/Devices/Server/Linux/Load Balancer (Keepalived)' module='Products.ZenModel.DeviceClass' class='DeviceClass'>
+<property visible="True" type="lines" id="zCollectorPlugins" >
+['zenoss.snmp.NewDeviceMap', 'zenoss.snmp.DeviceMap', 'zenoss.snmp.InterfaceMap', 'zenoss.snmp.RouteMap', 'zenoss.snmp.IpServiceMap', 'zenoss.snmp.CpuMap', 'ndgov.snmp.VirtualServer', 'ndgov.snmp.RealServer']
+</property>
+<tomanycont id='rrdTemplates'>
+<object id='KeepalivedRealServer' module='Products.ZenModel.RRDTemplate' class='RRDTemplate'>
+<property type="string" id="targetPythonClass" mode="w" >
+Products.ZenModel.Device
+</property>
+<tomanycont id='datasources'>
+<object id='RealServerActiveConns' module='Products.ZenModel.BasicDataSource' class='BasicDataSource'>
+<property select_variable="sourcetypes" type="selection" id="sourcetype" mode="w" >
+SNMP
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="string" id="eventClass" mode="w" >
+/Cmd/Fail
+</property>
+<property type="int" id="severity" mode="w" >
+3
+</property>
+<property type="int" id="cycletime" mode="w" >
+300
+</property>
+<property type="string" id="oid" mode="w" >
+.1.3.6.1.4.1.9586.100.5.3.4.1.15
+</property>
+<property type="boolean" id="usessh" mode="w" >
+False
+</property>
+<property type="string" id="parser" mode="w" >
+Auto
+</property>
+<tomanycont id='datapoints'>
+<object id='RealServerActiveConns' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+<property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+GAUGE
+</property>
+<property type="boolean" id="isrow" mode="w" >
+True
+</property>
+</object>
+</tomanycont>
+</object>
+<object id='RealServerInactiveConns' module='Products.ZenModel.BasicDataSource' class='BasicDataSource'>
+<property select_variable="sourcetypes" type="selection" id="sourcetype" mode="w" >
+SNMP
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="string" id="eventClass" mode="w" >
+/Cmd/Fail
+</property>
+<property type="int" id="severity" mode="w" >
+3
+</property>
+<property type="int" id="cycletime" mode="w" >
+300
+</property>
+<property type="string" id="oid" mode="w" >
+.1.3.6.1.4.1.9586.100.5.3.4.1.16
+</property>
+<property type="boolean" id="usessh" mode="w" >
+False
+</property>
+<property type="string" id="parser" mode="w" >
+Auto
+</property>
+<tomanycont id='datapoints'>
+<object id='RealServerInactiveConns' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+<property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+GAUGE
+</property>
+<property type="boolean" id="isrow" mode="w" >
+True
+</property>
+</object>
+</tomanycont>
+</object>
+<object id='RealServerPersistentConns' module='Products.ZenModel.BasicDataSource' class='BasicDataSource'>
+<property select_variable="sourcetypes" type="selection" id="sourcetype" mode="w" >
+SNMP
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="string" id="eventClass" mode="w" >
+/Cmd/Fail
+</property>
+<property type="int" id="severity" mode="w" >
+3
+</property>
+<property type="int" id="cycletime" mode="w" >
+300
+</property>
+<property type="string" id="oid" mode="w" >
+.1.3.6.1.4.1.9586.100.5.3.4.1.17
+</property>
+<property type="boolean" id="usessh" mode="w" >
+False
+</property>
+<property type="string" id="parser" mode="w" >
+Auto
+</property>
+<tomanycont id='datapoints'>
+<object id='RealServerPersistentConns' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+<property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+GAUGE
+</property>
+<property type="boolean" id="isrow" mode="w" >
+True
+</property>
+</object>
+</tomanycont>
+</object>
+<object id='RealServerStatsInBytes' module='Products.ZenModel.BasicDataSource' class='BasicDataSource'>
+<property select_variable="sourcetypes" type="selection" id="sourcetype" mode="w" >
+SNMP
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="string" id="eventClass" mode="w" >
+/Cmd/Fail
+</property>
+<property type="int" id="severity" mode="w" >
+3
+</property>
+<property type="int" id="cycletime" mode="w" >
+300
+</property>
+<property type="string" id="oid" mode="w" >
+.1.3.6.1.4.1.9586.100.5.3.4.1.20
+</property>
+<property type="boolean" id="usessh" mode="w" >
+False
+</property>
+<property type="string" id="parser" mode="w" >
+Auto
+</property>
+<tomanycont id='datapoints'>
+<object id='RealServerStatsInB' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+<property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+COUNTER
+</property>
+<property type="boolean" id="isrow" mode="w" >
+True
+</property>
+</object>
+</tomanycont>
+</object>
+<object id='RealServerStatsInPkts' module='Products.ZenModel.BasicDataSource' class='BasicDataSource'>
+<property select_variable="sourcetypes" type="selection" id="sourcetype" mode="w" >
+SNMP
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="string" id="eventClass" mode="w" >
+/Cmd/Fail
+</property>
+<property type="int" id="severity" mode="w" >
+3
+</property>
+<property type="int" id="cycletime" mode="w" >
+300
+</property>
+<property type="string" id="oid" mode="w" >
+.1.3.6.1.4.1.9586.100.5.3.4.1.18
+</property>
+<property type="boolean" id="usessh" mode="w" >
+False
+</property>
+<property type="string" id="parser" mode="w" >
+Auto
+</property>
+<tomanycont id='datapoints'>
+<object id='RealServerStatsInPkts' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+<property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+COUNTER
+</property>
+<property type="boolean" id="isrow" mode="w" >
+True
+</property>
+</object>
+</tomanycont>
+</object>
+<object id='RealServerStatsOutBytes' module='Products.ZenModel.BasicDataSource' class='BasicDataSource'>
+<property select_variable="sourcetypes" type="selection" id="sourcetype" mode="w" >
+SNMP
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="string" id="eventClass" mode="w" >
+/Cmd/Fail
+</property>
+<property type="int" id="severity" mode="w" >
+3
+</property>
+<property type="int" id="cycletime" mode="w" >
+300
+</property>
+<property type="string" id="oid" mode="w" >
+.1.3.6.1.4.1.9586.100.5.3.4.1.21
+</property>
+<property type="boolean" id="usessh" mode="w" >
+False
+</property>
+<property type="string" id="parser" mode="w" >
+Auto
+</property>
+<tomanycont id='datapoints'>
+<object id='RealServerStatsOutBytes' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+<property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+COUNTER
+</property>
+<property type="boolean" id="isrow" mode="w" >
+True
+</property>
+</object>
+</tomanycont>
+</object>
+<object id='RealServerStatsOutPkts' module='Products.ZenModel.BasicDataSource' class='BasicDataSource'>
+<property select_variable="sourcetypes" type="selection" id="sourcetype" mode="w" >
+SNMP
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="string" id="eventClass" mode="w" >
+/Cmd/Fail
+</property>
+<property type="int" id="severity" mode="w" >
+3
+</property>
+<property type="int" id="cycletime" mode="w" >
+300
+</property>
+<property type="string" id="oid" mode="w" >
+.1.3.6.1.4.1.9586.100.5.3.4.1.19
+</property>
+<property type="boolean" id="usessh" mode="w" >
+False
+</property>
+<property type="string" id="parser" mode="w" >
+Auto
+</property>
+<tomanycont id='datapoints'>
+<object id='RealServerStatsOutPkts' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+<property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+COUNTER
+</property>
+<property type="boolean" id="isrow" mode="w" >
+True
+</property>
+</object>
+</tomanycont>
+</object>
+</tomanycont>
+<tomanycont id='graphDefs'>
+<object id='Connections' module='Products.ZenModel.GraphDefinition' class='GraphDefinition'>
+<property type="int" id="height" mode="w" >
+100
+</property>
+<property type="int" id="width" mode="w" >
+500
+</property>
+<property type="boolean" id="log" mode="w" >
+False
+</property>
+<property type="boolean" id="base" mode="w" >
+False
+</property>
+<property type="int" id="miny" mode="w" >
+-1
+</property>
+<property type="int" id="maxy" mode="w" >
+-1
+</property>
+<property type="boolean" id="hasSummary" mode="w" >
+True
+</property>
+<property type="long" id="sequence" mode="w" >
+0
+</property>
+<tomanycont id='graphPoints'>
+<object id='RealServerActiveConns' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+<property type="long" id="sequence" mode="w" >
+0
+</property>
+<property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+LINE
+</property>
+<property type="long" id="lineWidth" mode="w" >
+1
+</property>
+<property type="boolean" id="stacked" mode="w" >
+False
+</property>
+<property type="string" id="format" mode="w" >
+%5.2lf%s
+</property>
+<property type="string" id="legend" mode="w" >
+${graphPoint/id}
+</property>
+<property type="long" id="limit" mode="w" >
+-1
+</property>
+<property type="string" id="dpName" mode="w" >
+RealServerActiveConns_RealServerActiveConns
+</property>
+<property type="string" id="cFunc" mode="w" >
+AVERAGE
+</property>
+</object>
+<object id='RealServerInactiveConns' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+<property type="long" id="sequence" mode="w" >
+1
+</property>
+<property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+LINE
+</property>
+<property type="long" id="lineWidth" mode="w" >
+1
+</property>
+<property type="boolean" id="stacked" mode="w" >
+False
+</property>
+<property type="string" id="format" mode="w" >
+%5.2lf%s
+</property>
+<property type="string" id="legend" mode="w" >
+${graphPoint/id}
+</property>
+<property type="long" id="limit" mode="w" >
+-1
+</property>
+<property type="string" id="dpName" mode="w" >
+RealServerInactiveConns_RealServerInactiveConns
+</property>
+<property type="string" id="cFunc" mode="w" >
+AVERAGE
+</property>
+</object>
+<object id='RealServerPersistentConns' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+<property type="long" id="sequence" mode="w" >
+2
+</property>
+<property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+LINE
+</property>
+<property type="long" id="lineWidth" mode="w" >
+1
+</property>
+<property type="boolean" id="stacked" mode="w" >
+False
+</property>
+<property type="string" id="format" mode="w" >
+%5.2lf%s
+</property>
+<property type="string" id="legend" mode="w" >
+${graphPoint/id}
+</property>
+<property type="long" id="limit" mode="w" >
+-1
+</property>
+<property type="string" id="dpName" mode="w" >
+RealServerPersistentConns_RealServerPersistentConns
+</property>
+<property type="string" id="cFunc" mode="w" >
+AVERAGE
+</property>
+</object>
+</tomanycont>
+</object>
+<object id='Throughput - Bytes' module='Products.ZenModel.GraphDefinition' class='GraphDefinition'>
+<property type="int" id="height" mode="w" >
+100
+</property>
+<property type="int" id="width" mode="w" >
+500
+</property>
+<property type="string" id="units" mode="w" >
+bytes
+</property>
+<property type="boolean" id="log" mode="w" >
+False
+</property>
+<property type="boolean" id="base" mode="w" >
+False
+</property>
+<property type="int" id="miny" mode="w" >
+-1
+</property>
+<property type="int" id="maxy" mode="w" >
+-1
+</property>
+<property type="boolean" id="hasSummary" mode="w" >
+True
+</property>
+<property type="long" id="sequence" mode="w" >
+2
+</property>
+<tomanycont id='graphPoints'>
+<object id='RealServerStatsInB' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+<property type="long" id="sequence" mode="w" >
+1
+</property>
+<property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+LINE
+</property>
+<property type="long" id="lineWidth" mode="w" >
+1
+</property>
+<property type="boolean" id="stacked" mode="w" >
+False
+</property>
+<property type="string" id="format" mode="w" >
+%5.2lf%s
+</property>
+<property type="string" id="legend" mode="w" >
+${graphPoint/id}
+</property>
+<property type="long" id="limit" mode="w" >
+-1
+</property>
+<property type="string" id="dpName" mode="w" >
+RealServerStatsInBytes_RealServerStatsInB
+</property>
+<property type="string" id="cFunc" mode="w" >
+AVERAGE
+</property>
+</object>
+<object id='RealServerStatsOutBytes' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+<property type="long" id="sequence" mode="w" >
+0
+</property>
+<property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+LINE
+</property>
+<property type="long" id="lineWidth" mode="w" >
+1
+</property>
+<property type="boolean" id="stacked" mode="w" >
+False
+</property>
+<property type="string" id="format" mode="w" >
+%5.2lf%s
+</property>
+<property type="string" id="legend" mode="w" >
+${graphPoint/id}
+</property>
+<property type="long" id="limit" mode="w" >
+-1
+</property>
+<property type="string" id="dpName" mode="w" >
+RealServerStatsOutBytes_RealServerStatsOutBytes
+</property>
+<property type="string" id="cFunc" mode="w" >
+AVERAGE
+</property>
+</object>
+</tomanycont>
+</object>
+<object id='Throughput - Packets' module='Products.ZenModel.GraphDefinition' class='GraphDefinition'>
+<property type="int" id="height" mode="w" >
+100
+</property>
+<property type="int" id="width" mode="w" >
+500
+</property>
+<property type="string" id="units" mode="w" >
+packets
+</property>
+<property type="boolean" id="log" mode="w" >
+False
+</property>
+<property type="boolean" id="base" mode="w" >
+False
+</property>
+<property type="int" id="miny" mode="w" >
+-1
+</property>
+<property type="int" id="maxy" mode="w" >
+-1
+</property>
+<property type="boolean" id="hasSummary" mode="w" >
+True
+</property>
+<property type="long" id="sequence" mode="w" >
+1
+</property>
+<tomanycont id='graphPoints'>
+<object id='RealServerStatsInPkts' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+<property type="long" id="sequence" mode="w" >
+0
+</property>
+<property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+LINE
+</property>
+<property type="long" id="lineWidth" mode="w" >
+1
+</property>
+<property type="boolean" id="stacked" mode="w" >
+False
+</property>
+<property type="string" id="format" mode="w" >
+%5.2lf%s
+</property>
+<property type="string" id="legend" mode="w" >
+${graphPoint/id}
+</property>
+<property type="long" id="limit" mode="w" >
+-1
+</property>
+<property type="string" id="dpName" mode="w" >
+RealServerStatsInPkts_RealServerStatsInPkts
+</property>
+<property type="string" id="cFunc" mode="w" >
+AVERAGE
+</property>
+</object>
+<object id='RealServerStatsOutPkts' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+<property type="long" id="sequence" mode="w" >
+1
+</property>
+<property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+LINE
+</property>
+<property type="long" id="lineWidth" mode="w" >
+1
+</property>
+<property type="boolean" id="stacked" mode="w" >
+False
+</property>
+<property type="string" id="format" mode="w" >
+%5.2lf%s
+</property>
+<property type="string" id="legend" mode="w" >
+${graphPoint/id}
+</property>
+<property type="long" id="limit" mode="w" >
+-1
+</property>
+<property type="string" id="dpName" mode="w" >
+RealServerStatsOutPkts_RealServerStatsOutPkts
+</property>
+<property type="string" id="cFunc" mode="w" >
+AVERAGE
+</property>
+</object>
+</tomanycont>
+</object>
+</tomanycont>
+</object>
+<object id='KeepalivedVirtualServer' module='Products.ZenModel.RRDTemplate' class='RRDTemplate'>
+<property type="string" id="targetPythonClass" mode="w" >
+Products.ZenModel.Device
+</property>
+<tomanycont id='datasources'>
+<object id='VirtualServerInPkts' module='Products.ZenModel.BasicDataSource' class='BasicDataSource'>
+<property select_variable="sourcetypes" type="selection" id="sourcetype" mode="w" >
+SNMP
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="string" id="eventClass" mode="w" >
+/Cmd/Fail
+</property>
+<property type="int" id="severity" mode="w" >
+3
+</property>
+<property type="int" id="cycletime" mode="w" >
+300
+</property>
+<property type="string" id="oid" mode="w" >
+.1.3.6.1.4.1.9586.100.5.3.3.1.28
+</property>
+<property type="boolean" id="usessh" mode="w" >
+False
+</property>
+<property type="string" id="parser" mode="w" >
+Auto
+</property>
+<tomanycont id='datapoints'>
+<object id='VirtualServerInPkys' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+<property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+COUNTER
+</property>
+<property type="boolean" id="isrow" mode="w" >
+True
+</property>
+</object>
+</tomanycont>
+</object>
+<object id='VirtualServerOutPkts' module='Products.ZenModel.BasicDataSource' class='BasicDataSource'>
+<property select_variable="sourcetypes" type="selection" id="sourcetype" mode="w" >
+SNMP
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="string" id="eventClass" mode="w" >
+/Cmd/Fail
+</property>
+<property type="int" id="severity" mode="w" >
+3
+</property>
+<property type="int" id="cycletime" mode="w" >
+300
+</property>
+<property type="string" id="oid" mode="w" >
+.1.3.6.1.4.1.9586.100.5.3.3.1.29
+</property>
+<property type="boolean" id="usessh" mode="w" >
+False
+</property>
+<property type="string" id="parser" mode="w" >
+Auto
+</property>
+<tomanycont id='datapoints'>
+<object id='VirtualServerOutPkts' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+<property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+COUNTER
+</property>
+<property type="boolean" id="isrow" mode="w" >
+True
+</property>
+</object>
+</tomanycont>
+</object>
+<object id='VirtualServerStatsConns' module='Products.ZenModel.BasicDataSource' class='BasicDataSource'>
+<property select_variable="sourcetypes" type="selection" id="sourcetype" mode="w" >
+SNMP
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="string" id="eventClass" mode="w" >
+/Cmd/Fail
+</property>
+<property type="int" id="severity" mode="w" >
+3
+</property>
+<property type="int" id="cycletime" mode="w" >
+300
+</property>
+<property type="string" id="oid" mode="w" >
+.1.3.6.1.4.1.9586.100.5.3.3.1.27
+</property>
+<property type="boolean" id="usessh" mode="w" >
+False
+</property>
+<property type="string" id="parser" mode="w" >
+Auto
+</property>
+<tomanycont id='datapoints'>
+<object id='VirtualServerStatsConns' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+<property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+COUNTER
+</property>
+<property type="boolean" id="isrow" mode="w" >
+True
+</property>
+</object>
+</tomanycont>
+</object>
+<object id='VirtualServerStatsInBytes' module='Products.ZenModel.BasicDataSource' class='BasicDataSource'>
+<property select_variable="sourcetypes" type="selection" id="sourcetype" mode="w" >
+SNMP
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="string" id="eventClass" mode="w" >
+/Cmd/Fail
+</property>
+<property type="int" id="severity" mode="w" >
+3
+</property>
+<property type="int" id="cycletime" mode="w" >
+300
+</property>
+<property type="string" id="oid" mode="w" >
+.1.3.6.1.4.1.9586.100.5.3.3.1.30
+</property>
+<property type="boolean" id="usessh" mode="w" >
+False
+</property>
+<property type="string" id="parser" mode="w" >
+Auto
+</property>
+<tomanycont id='datapoints'>
+<object id='VirtualServerStatsInBytes' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+<property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+COUNTER
+</property>
+<property type="boolean" id="isrow" mode="w" >
+True
+</property>
+</object>
+</tomanycont>
+</object>
+<object id='VirtualServerStatsOutBytes' module='Products.ZenModel.BasicDataSource' class='BasicDataSource'>
+<property select_variable="sourcetypes" type="selection" id="sourcetype" mode="w" >
+SNMP
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="string" id="eventClass" mode="w" >
+/Cmd/Fail
+</property>
+<property type="int" id="severity" mode="w" >
+3
+</property>
+<property type="int" id="cycletime" mode="w" >
+300
+</property>
+<property type="string" id="oid" mode="w" >
+.1.3.6.1.4.1.9586.100.5.3.3.1.31
+</property>
+<property type="boolean" id="usessh" mode="w" >
+False
+</property>
+<property type="string" id="parser" mode="w" >
+Auto
+</property>
+<tomanycont id='datapoints'>
+<object id='VirtualServerStatsOutBytes' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+<property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+COUNTER
+</property>
+<property type="boolean" id="isrow" mode="w" >
+True
+</property>
+</object>
+</tomanycont>
+</object>
+</tomanycont>
+<tomanycont id='graphDefs'>
+<object id='Connections' module='Products.ZenModel.GraphDefinition' class='GraphDefinition'>
+<property type="int" id="height" mode="w" >
+100
+</property>
+<property type="int" id="width" mode="w" >
+500
+</property>
+<property type="string" id="units" mode="w" >
+Connections
+</property>
+<property type="boolean" id="log" mode="w" >
+False
+</property>
+<property type="boolean" id="base" mode="w" >
+False
+</property>
+<property type="int" id="miny" mode="w" >
+-1
+</property>
+<property type="int" id="maxy" mode="w" >
+-1
+</property>
+<property type="boolean" id="hasSummary" mode="w" >
+True
+</property>
+<property type="long" id="sequence" mode="w" >
+1
+</property>
+<tomanycont id='graphPoints'>
+<object id='VirtualServerStatsConns' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+<property type="long" id="sequence" mode="w" >
+0
+</property>
+<property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+LINE
+</property>
+<property type="long" id="lineWidth" mode="w" >
+1
+</property>
+<property type="boolean" id="stacked" mode="w" >
+False
+</property>
+<property type="string" id="format" mode="w" >
+%5.2lf%s
+</property>
+<property type="string" id="legend" mode="w" >
+${graphPoint/id}
+</property>
+<property type="long" id="limit" mode="w" >
+-1
+</property>
+<property type="string" id="dpName" mode="w" >
+VirtualServerStatsConns_VirtualServerStatsConns
+</property>
+<property type="string" id="cFunc" mode="w" >
+AVERAGE
+</property>
+</object>
+</tomanycont>
+</object>
+<object id='Stats - Bytes' module='Products.ZenModel.GraphDefinition' class='GraphDefinition'>
+<property type="int" id="height" mode="w" >
+100
+</property>
+<property type="int" id="width" mode="w" >
+500
+</property>
+<property type="string" id="units" mode="w" >
+bytes
+</property>
+<property type="boolean" id="log" mode="w" >
+False
+</property>
+<property type="boolean" id="base" mode="w" >
+False
+</property>
+<property type="int" id="miny" mode="w" >
+-1
+</property>
+<property type="int" id="maxy" mode="w" >
+-1
+</property>
+<property type="boolean" id="hasSummary" mode="w" >
+True
+</property>
+<property type="long" id="sequence" mode="w" >
+0
+</property>
+<tomanycont id='graphPoints'>
+<object id='VirtualServerStatsInBytes' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+<property type="long" id="sequence" mode="w" >
+0
+</property>
+<property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+LINE
+</property>
+<property type="long" id="lineWidth" mode="w" >
+1
+</property>
+<property type="boolean" id="stacked" mode="w" >
+False
+</property>
+<property type="string" id="format" mode="w" >
+%5.2lf%s
+</property>
+<property type="string" id="legend" mode="w" >
+${graphPoint/id}
+</property>
+<property type="long" id="limit" mode="w" >
+-1
+</property>
+<property type="string" id="dpName" mode="w" >
+VirtualServerStatsInBytes_VirtualServerStatsInBytes
+</property>
+<property type="string" id="cFunc" mode="w" >
+AVERAGE
+</property>
+</object>
+<object id='VirtualServerStatsOutBytes' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+<property type="long" id="sequence" mode="w" >
+1
+</property>
+<property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+LINE
+</property>
+<property type="long" id="lineWidth" mode="w" >
+1
+</property>
+<property type="boolean" id="stacked" mode="w" >
+False
+</property>
+<property type="string" id="format" mode="w" >
+%5.2lf%s
+</property>
+<property type="string" id="legend" mode="w" >
+${graphPoint/id}
+</property>
+<property type="long" id="limit" mode="w" >
+-1
+</property>
+<property type="string" id="dpName" mode="w" >
+VirtualServerStatsOutBytes_VirtualServerStatsOutBytes
+</property>
+<property type="string" id="cFunc" mode="w" >
+AVERAGE
+</property>
+</object>
+</tomanycont>
+</object>
+<object id='Stats - Packets' module='Products.ZenModel.GraphDefinition' class='GraphDefinition'>
+<property type="int" id="height" mode="w" >
+100
+</property>
+<property type="int" id="width" mode="w" >
+500
+</property>
+<property type="string" id="units" mode="w" >
+Network Packets
+</property>
+<property type="boolean" id="log" mode="w" >
+False
+</property>
+<property type="boolean" id="base" mode="w" >
+False
+</property>
+<property type="int" id="miny" mode="w" >
+-1
+</property>
+<property type="int" id="maxy" mode="w" >
+-1
+</property>
+<property type="boolean" id="hasSummary" mode="w" >
+True
+</property>
+<property type="long" id="sequence" mode="w" >
+2
+</property>
+<tomanycont id='graphPoints'>
+<object id='VirtualServerInPkys' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+<property type="long" id="sequence" mode="w" >
+0
+</property>
+<property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+LINE
+</property>
+<property type="long" id="lineWidth" mode="w" >
+1
+</property>
+<property type="boolean" id="stacked" mode="w" >
+False
+</property>
+<property type="string" id="format" mode="w" >
+%5.2lf%s
+</property>
+<property type="string" id="legend" mode="w" >
+${graphPoint/id}
+</property>
+<property type="long" id="limit" mode="w" >
+-1
+</property>
+<property type="string" id="dpName" mode="w" >
+VirtualServerInPkts_VirtualServerInPkys
+</property>
+<property type="string" id="cFunc" mode="w" >
+AVERAGE
+</property>
+</object>
+<object id='VirtualServerOutPkts' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+<property type="long" id="sequence" mode="w" >
+1
+</property>
+<property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+LINE
+</property>
+<property type="long" id="lineWidth" mode="w" >
+1
+</property>
+<property type="boolean" id="stacked" mode="w" >
+False
+</property>
+<property type="string" id="format" mode="w" >
+%5.2lf%s
+</property>
+<property type="string" id="legend" mode="w" >
+${graphPoint/id}
+</property>
+<property type="long" id="limit" mode="w" >
+-1
+</property>
+<property type="string" id="dpName" mode="w" >
+VirtualServerOutPkts_VirtualServerOutPkts
+</property>
+<property type="string" id="cFunc" mode="w" >
+AVERAGE
+</property>
+</object>
+</tomanycont>
+</object>
+</tomanycont>
+</object>
+</tomanycont>
+</object>
+<!-- ('', 'zport', 'dmd', 'Mibs', 'mibs', 'KEEPALIVED-MIB') -->
+<object id='/zport/dmd/Mibs/mibs/KEEPALIVED-MIB' module='Products.ZenModel.MibModule' class='MibModule'>
+<property id='zendoc' type='string'>
+This MIB describes objects used by keepalived, both
+for VRRP and health checker.
+</property>
+<property type="string" id="language" mode="w" >
+SMIv2
+</property>
+<property type="string" id="contact" mode="w" >
+http://www.keepalived.org
+</property>
+<property type="string" id="description" mode="w" >
+This MIB describes objects used by keepalived, both
+for VRRP and health checker.
+</property>
+<tomanycont id='nodes'>
+<object id='check' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3
+</property>
+</object>
+<object id='checkGroups' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.4.2.3
+</property>
+</object>
+<object id='checkTrap' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.5
+</property>
+</object>
+<object id='checkTrapControl' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.5.1
+</property>
+</object>
+<object id='checkTraps' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.5.0
+</property>
+</object>
+<object id='compliances' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.4.1
+</property>
+</object>
+<object id='conformance' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.4
+</property>
+</object>
+<object id='debian' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586
+</property>
+</object>
+<object id='emailAddress' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Email address to be notified when an alert is raised.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.1.3.5.1.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Email address to be notified when an alert is raised.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='emailEntry' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Email address to be notified with an alert.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+row
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.1.3.5.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Email address to be notified with an alert.
+</property>
+</object>
+<object id='emailFrom' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Email address for the From field.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.1.3.4
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Email address for the From field.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='emailIndex' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Index for the email address.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.1.3.5.1.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Index for the email address.
+</property>
+<property type="string" id="access" mode="w" >
+noaccess
+</property>
+</object>
+<object id='emailTable' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Table of email notification addresses.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+table
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.1.3.5
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Table of email notification addresses.
+</property>
+</object>
+<object id='global' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.1
+</property>
+</object>
+<object id='groups' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.4.2
+</property>
+</object>
+<object id='keepalived' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+</object>
+<object id='linkBeat' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Indicate which method is used to check if a link is up or
+down. netlink(1) means that the kernel will push a link state
+change while polling(2) means that the status of the link is
+checked periodically.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.1.5
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Indicate which method is used to check if a link is up or
+down. netlink(1) means that the kernel will push a link state
+change while polling(2) means that the status of the link is
+checked periodically.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='mail' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.1.3
+</property>
+</object>
+<object id='project' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100
+</property>
+</object>
+<object id='realServerActionWhenDown' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+What action is performed when this server is down. Its weight
+can be set to 0 (inhibit) or it can be removed from the pool.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1.10
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+What action is performed when this server is down. Its weight
+can be set to 0 (inhibit) or it can be removed from the pool.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='realServerAddrType' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Address family for this real server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1.3
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Address family for this real server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='realServerAddress' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+IP address of this real server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1.4
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+IP address of this real server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='realServerEntry' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Information describing a real server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+row
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Information describing a real server.
+</property>
+</object>
+<object id='realServerFailedChecks' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+How many failed checks for this real server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1.13
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+How many failed checks for this real server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='realServerIndex' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Index of the real server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Index of the real server.
+</property>
+<property type="string" id="access" mode="w" >
+noaccess
+</property>
+</object>
+<object id='realServerLowerConnectionLimit' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Minimum number of connections for this real server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1.9
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Minimum number of connections for this real server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='realServerNotifyDown' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Command to execute when this server becomes dead.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1.12
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Command to execute when this server becomes dead.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='realServerNotifyUp' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Command to execute when this server becomes alive.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1.11
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Command to execute when this server becomes alive.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='realServerPort' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Port of the service.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1.5
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Port of the service.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='realServerRateCps' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Current connection rate for this real server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1.22
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Current connection rate for this real server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='realServerRateInBPS' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Current incoming rate for this real server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1.25
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Current incoming rate for this real server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='realServerRateInPPS' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Current in packet rate for this real server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1.23
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Current in packet rate for this real server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='realServerRateOutBPS' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Current outgoing rate for this real server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1.26
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Current outgoing rate for this real server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='realServerRateOutPPS' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Current out packet rate for this real server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1.24
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Current out packet rate for this real server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='realServerStatsActiveConns' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Current active connections for this real server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1.15
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Current active connections for this real server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='realServerStatsConns' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Total number of connections scheduled for this real server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1.14
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Total number of connections scheduled for this real server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='realServerStatsInBytes' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Total number of incoming bytes for this real server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1.20
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Total number of incoming bytes for this real server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='realServerStatsInPkts' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Total number of incoming packets for this real server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1.18
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Total number of incoming packets for this real server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='realServerStatsInactiveConns' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Current inactive connections for this real server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1.16
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Current inactive connections for this real server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='realServerStatsOutBytes' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Total number of outgoing bytes for this real server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1.21
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Total number of outgoing bytes for this real server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='realServerStatsOutPkts' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Total number of outgoing packets for this real server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1.19
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Total number of outgoing packets for this real server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='realServerStatsPersistentConns' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Current persistent connections for this real server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1.17
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Current persistent connections for this real server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='realServerStatus' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Status of this real server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1.6
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Status of this real server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='realServerTable' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Table of real servers. This includes regular real servers and sorry servers.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+table
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Table of real servers. This includes regular real servers and sorry servers.
+</property>
+</object>
+<object id='realServerType' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Type of real server: either a regular real server or a sorry server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Type of real server: either a regular real server or a sorry server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='realServerUpperConnectionLimit' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Maximum number of connections for this real server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1.8
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Maximum number of connections for this real server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='realServerWeight' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Weight of this real server.
+
+This value can be set to 0 to disable the real server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.4.1.7
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Weight of this real server.
+
+This value can be set to 0 to disable the real server.
+</property>
+<property type="string" id="access" mode="w" >
+readwrite
+</property>
+</object>
+<object id='routerId' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Router ID
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.1.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Router ID
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='smtpServerAddress' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Address of SMTP server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.1.3.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Address of SMTP server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='smtpServerAddressType' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Address type for SMTP server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.1.3.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Address type for SMTP server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='smtpServerTimeout' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+SMTP server connection timeout.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.1.3.3
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+SMTP server connection timeout.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='trapEnable' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Indicate whether traps should be sent for various events.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.1.4
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Indicate whether traps should be sent for various events.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='version' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Version of keepalived
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+scalar
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.1.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Version of keepalived
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerAddrType' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+If the virtual server is defined from an IP, this
+is the address family. Otherwise, this column should not
+exist in the current row.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.5
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+If the virtual server is defined from an IP, this
+is the address family. Otherwise, this column should not
+exist in the current row.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerAddress' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+If the virtual server is defined from an IP address, this
+is the value of the IP. Otherwise, this column should not
+exist in the current row.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.6
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+If the virtual server is defined from an IP address, this
+is the value of the IP. Otherwise, this column should not
+exist in the current row.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerAlpha' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Is alpha mode enabled?
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.18
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Is alpha mode enabled?
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerDelayLoop' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Delay in seconds between two checks.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.16
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Delay in seconds between two checks.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerEntry' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Information describing a virtual server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+row
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Information describing a virtual server.
+</property>
+</object>
+<object id='virtualServerFwMark' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+If the virtual server is defined from a firewall mark, this
+is the value of the mark. Otherwise, this column should not
+exist in the current row.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.4
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+If the virtual server is defined from a firewall mark, this
+is the value of the mark. Otherwise, this column should not
+exist in the current row.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerGroupEntry' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Information describing a virtual server group.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+row
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.1.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Information describing a virtual server group.
+</property>
+</object>
+<object id='virtualServerGroupIndex' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Index of the virtual server group.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.1.1.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Index of the virtual server group.
+</property>
+<property type="string" id="access" mode="w" >
+noaccess
+</property>
+</object>
+<object id='virtualServerGroupMemberAddr1' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+First IP address of the range for this member.
+
+If the kind of this member is not range(3), then this entry
+should not exist for the current row.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.2.1.6
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+First IP address of the range for this member.
+
+If the kind of this member is not range(3), then this entry
+should not exist for the current row.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerGroupMemberAddr2' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Second IP address of the range for this member.
+
+If the kind of this member is not range(3), then this entry
+should not exist for the current row.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.2.1.7
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Second IP address of the range for this member.
+
+If the kind of this member is not range(3), then this entry
+should not exist for the current row.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerGroupMemberAddrType' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Type of IP address for this member.
+
+If the kind of this member is neither address(2) or range(3),
+then this entry should not exist for the current row.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.2.1.4
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Type of IP address for this member.
+
+If the kind of this member is neither address(2) or range(3),
+then this entry should not exist for the current row.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerGroupMemberAddress' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+IP address of this member.
+
+If the kind of this member is not address(2), then this entry
+should not exist for the current row.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.2.1.5
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+IP address of this member.
+
+If the kind of this member is not address(2), then this entry
+should not exist for the current row.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerGroupMemberEntry' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Description of a member of a virtual server group.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+row
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.2.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Description of a member of a virtual server group.
+</property>
+</object>
+<object id='virtualServerGroupMemberFwMark' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Firewall mark for this member.
+
+If the kind of this member is not fwmark(1), then this entry
+should not exist for the current row.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.2.1.3
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Firewall mark for this member.
+
+If the kind of this member is not fwmark(1), then this entry
+should not exist for the current row.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerGroupMemberIndex' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Index of the member into virtual server group.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.2.1.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Index of the member into virtual server group.
+</property>
+<property type="string" id="access" mode="w" >
+noaccess
+</property>
+</object>
+<object id='virtualServerGroupMemberPort' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+V port for this member.
+
+If the kind of this member is neither address(2) nor range(3),
+then this entry should not exist for the current row.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.2.1.8
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+V port for this member.
+
+If the kind of this member is neither address(2) nor range(3),
+then this entry should not exist for the current row.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerGroupMemberTable' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Table of members of a virtual server group.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+table
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Table of members of a virtual server group.
+</property>
+</object>
+<object id='virtualServerGroupMemberType' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Kind of entry: firewall mark, address with port or range of
+addresses with port.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.2.1.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Kind of entry: firewall mark, address with port or range of
+addresses with port.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerGroupName' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Name of the virtual server group.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.1.1.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Name of the virtual server group.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerGroupTable' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Table of virtual server groups.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+table
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Table of virtual server groups.
+</property>
+</object>
+<object id='virtualServerHaSuspend' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+If set to true(1), checks will be suspended if the IP of the
+virtual server is currently not set.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.17
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+If set to true(1), checks will be suspended if the IP of the
+virtual server is currently not set.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerHysteresis' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Hysteresis with respect to quorum count.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.26
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Hysteresis with respect to quorum count.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerIndex' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Index of the virtual server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Index of the virtual server.
+</property>
+<property type="string" id="access" mode="w" >
+noaccess
+</property>
+</object>
+<object id='virtualServerLoadBalancingAlgo' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Which load balancing algorithm (or scheduler) should be used
+for this virtual server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.9
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Which load balancing algorithm (or scheduler) should be used
+for this virtual server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerLoadBalancingKind' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Forwarding method to use for this virtual server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.10
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Forwarding method to use for this virtual server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerNameOfGroup' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+If the virtual is defined from a group, this is the name of the group.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.3
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+If the virtual is defined from a group, this is the name of the group.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerOPS' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+If set to true(1), One-Packet-Scheduling will be applied.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.37
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+If set to true(1), One-Packet-Scheduling will be applied.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerOmega' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Is omega mode enabled?
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.19
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Is omega mode enabled?
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerPersist' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Is the virtual service persistence enabled?
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.13
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Is the virtual service persistence enabled?
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerPersistGranularity' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Netmask specifying the granularity of the persistence mechanism.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.15
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Netmask specifying the granularity of the persistence mechanism.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerPersistTimeout' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+If this virtual service is persistence, what is the timeout.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.14
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+If this virtual service is persistence, what is the timeout.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerPort' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+If the virtual server is defined from an IP, this is
+the value of the port to listen for requests. Otherwise, this column
+should not exist in the current row.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.7
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+If the virtual server is defined from an IP, this is
+the value of the port to listen for requests. Otherwise, this column
+should not exist in the current row.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerProtocol' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Which transport protocol should be used for this virtual server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.8
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Which transport protocol should be used for this virtual server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerQuorum' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Quorum to get amond real servers to consider this virtual server up.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.22
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Quorum to get amond real servers to consider this virtual server up.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerQuorumDown' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Command to execute when the quorum is not met.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.25
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Command to execute when the quorum is not met.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerQuorumStatus' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Current status of the quorum for this virtual server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.23
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Current status of the quorum for this virtual server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerQuorumUp' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Command to execute when the quorum is met.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.24
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Command to execute when the quorum is met.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerRateCps' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Current connection rate for this virtual server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.32
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Current connection rate for this virtual server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerRateInBPS' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Current incoming rate for this virtual server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.35
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Current incoming rate for this virtual server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerRateInPPS' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Current in packet rate for this virtual server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.33
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Current in packet rate for this virtual server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerRateOutBPS' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Current outgoing rate for this virtual server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.36
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Current outgoing rate for this virtual server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerRateOutPPS' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Current out packet rate for this virtual server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.34
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Current out packet rate for this virtual server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerRealServersTotal' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Total number of real servers for this virtual server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.20
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Total number of real servers for this virtual server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerRealServersUp' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Real servers actually up for this virtual server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.21
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Real servers actually up for this virtual server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerStatsConns' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Total number of connections scheduled for this virtual server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.27
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Total number of connections scheduled for this virtual server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerStatsInBytes' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Total number of incoming bytes for this virtual server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.30
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Total number of incoming bytes for this virtual server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerStatsInPkts' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Total number of incoming packets for this virtual server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.28
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Total number of incoming packets for this virtual server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerStatsOutBytes' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Total number of outgoing bytes for this virtual server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.31
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Total number of outgoing bytes for this virtual server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerStatsOutPkts' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Total number of outgoing packets for this virtual server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.29
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Total number of outgoing packets for this virtual server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerStatus' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Current status of this virtual server.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.11
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Current status of this virtual server.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerTable' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Table of virtual servers.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+table
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Table of virtual servers.
+</property>
+</object>
+<object id='virtualServerType' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Type of virtual server. A virtual server can either be
+defined from a firewall mark, an IP and a port
+or from a virtual server group.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Type of virtual server. A virtual server can either be
+defined from a firewall mark, an IP and a port
+or from a virtual server group.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='virtualServerVirtualHost' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Virtualhost of this server for HTTP like requests.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.3.1.12
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Virtualhost of this server for HTTP like requests.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrp' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2
+</property>
+</object>
+<object id='vrrpAddressAdvertising' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Status of VRRP advertising for this IP address.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.6.1.11
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Status of VRRP advertising for this IP address.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpAddressBroadcast' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Broadcast address associated with the IP address.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.6.1.4
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Broadcast address associated with the IP address.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpAddressEntry' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Information describing an address. This can be a static
+address or a virtual address. In case of static address, the
+VRRP instance index is 0.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+row
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.6.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Information describing an address. This can be a static
+address or a virtual address. In case of static address, the
+VRRP instance index is 0.
+</property>
+</object>
+<object id='vrrpAddressIfAlias' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Alias name of the interface.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.6.1.9
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Alias name of the interface.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpAddressIfIndex' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Index of the interface to which the IP address is linked to.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.6.1.7
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Index of the interface to which the IP address is linked to.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpAddressIfName' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Name of the interface to which the IP address is linked to.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.6.1.8
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Name of the interface to which the IP address is linked to.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpAddressIndex' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Address index.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.6.1.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Address index.
+</property>
+<property type="string" id="access" mode="w" >
+noaccess
+</property>
+</object>
+<object id='vrrpAddressMask' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Address mask.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.6.1.5
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Address mask.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpAddressScope' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Address scope.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.6.1.6
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Address scope.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpAddressStatus' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Is the IP address set?
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.6.1.10
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Is the IP address set?
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpAddressTable' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Table of static and virtual addresses
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+table
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.6
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Table of static and virtual addresses
+</property>
+</object>
+<object id='vrrpAddressType' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+A value that represents a type of Internet address.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.6.1.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+A value that represents a type of Internet address.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpAddressValue' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Actual IP address.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.6.1.3
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Actual IP address.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpGroups' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.4.2.2
+</property>
+</object>
+<object id='vrrpInstanceAdvertisementsInt' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Delay in seconds between two VRRP advertisements.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1.12
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Delay in seconds between two VRRP advertisements.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpInstanceAuthType' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Authentication method to authenticate other peers.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1.15
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Authentication method to authenticate other peers.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpInstanceBasePriority' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Base priority (as defined in the configuration file) for this
+VRRP instance.
+
+This value can be modified to force the virtual router
+instance to become backup or master.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1.7
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Base priority (as defined in the configuration file) for this
+VRRP instance.
+
+This value can be modified to force the virtual router
+instance to become backup or master.
+</property>
+<property type="string" id="access" mode="w" >
+readwrite
+</property>
+</object>
+<object id='vrrpInstanceEffectivePriority' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Effective priority for this VRRP instance. Status of
+interfaces and script results are used to compute this value
+from the base priority.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1.8
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Effective priority for this VRRP instance. Status of
+interfaces and script results are used to compute this value
+from the base priority.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpInstanceEntry' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Information describing a sync group
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+row
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Information describing a sync group
+</property>
+</object>
+<object id='vrrpInstanceGarpDelay' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Delay to launch gratuitous ARP (GARP).
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1.19
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Delay to launch gratuitous ARP (GARP).
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpInstanceIndex' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Index of the VRRP instance.
+
+Instance 0 is for static IP and static routes.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Index of the VRRP instance.
+
+Instance 0 is for static IP and static routes.
+</property>
+<property type="string" id="access" mode="w" >
+noaccess
+</property>
+</object>
+<object id='vrrpInstanceInitialState' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Initial state of this VRRP instance.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1.5
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Initial state of this VRRP instance.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpInstanceLvsSyncDaemon' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Is LVS sync daemon enabled for this VRRP instance?
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1.16
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Is LVS sync daemon enabled for this VRRP instance?
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpInstanceLvsSyncInterface' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+If LVS sync daemon is enabled, which interface to use for syncing?
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1.17
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+If LVS sync daemon is enabled, which interface to use for syncing?
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpInstanceName' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Name of the VRRP instance.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Name of the VRRP instance.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpInstanceNotifyExec' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Will we execute notification script for this instance?
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1.21
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Will we execute notification script for this instance?
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpInstancePreempt' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Will a higher priority advertisement preempt a lower instance?
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1.13
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Will a higher priority advertisement preempt a lower instance?
+</property>
+<property type="string" id="access" mode="w" >
+readwrite
+</property>
+</object>
+<object id='vrrpInstancePreemptDelay' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Delay after startup until preemption can happen. 0 means that
+there is no delay.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1.14
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Delay after startup until preemption can happen. 0 means that
+there is no delay.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpInstancePrimaryInterface' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Primary interface of this VRRP instance.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1.10
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Primary interface of this VRRP instance.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpInstanceScript' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Script to execute whenever a state change occurs.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1.26
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Script to execute whenever a state change occurs.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpInstanceScriptBackup' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Script to execute when the instance becomes backup.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1.23
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Script to execute when the instance becomes backup.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpInstanceScriptFault' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Script to execute when the instance is in fault state.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1.24
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Script to execute when the instance is in fault state.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpInstanceScriptMaster' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Script to execute when the instance becomes master.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1.22
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Script to execute when the instance becomes master.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpInstanceScriptStop' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Script to execute when the instance is stopped.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1.25
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Script to execute when the instance is stopped.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpInstanceSmtpAlert' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Will SMTP alert be sent for this VRRP instance?
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1.20
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Will SMTP alert be sent for this VRRP instance?
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpInstanceState' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Current state of this VRRP instance.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1.4
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Current state of this VRRP instance.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpInstanceSyncGroup' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Name of the synchronisation group this VRRP instance belongs, if any.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1.18
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Name of the synchronisation group this VRRP instance belongs, if any.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpInstanceTable' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Table of VRRP instances
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+table
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Table of VRRP instances
+</property>
+</object>
+<object id='vrrpInstanceTrackPrimaryIf' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Do we track the status of the primary interface?
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1.11
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Do we track the status of the primary interface?
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpInstanceVipsStatus' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Are all VIP of this VRRP instance enabled?
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1.9
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Are all VIP of this VRRP instance enabled?
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpInstanceVirtualRouterId' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Virtual Router ID (VRID) for this VRRP instance.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1.3
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Virtual Router ID (VRID) for this VRRP instance.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpInstanceWantedState' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+State wanted by the operator for this VRRP instance.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.3.1.6
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+State wanted by the operator for this VRRP instance.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpRouteAddressType' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Route type of internet address.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.7.1.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Route type of internet address.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpRouteDestination' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Route destination.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.7.1.3
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Route destination.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpRouteDestinationMask' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Route destination mask.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.7.1.4
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Route destination mask.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpRouteEntry' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Information describing a route. In case of a static route,
+the instance index is 0.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+row
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.7.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Information describing a route. In case of a static route,
+the instance index is 0.
+</property>
+</object>
+<object id='vrrpRouteGateway' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Gateway for the given destination.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.7.1.5
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Gateway for the given destination.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpRouteIfIndex' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Interface attached to this route.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.7.1.11
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Interface attached to this route.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpRouteIfName' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Name of the interface of attached to this route.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.7.1.12
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Name of the interface of attached to this route.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpRouteIndex' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Route index.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.7.1.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Route index.
+</property>
+<property type="string" id="access" mode="w" >
+noaccess
+</property>
+</object>
+<object id='vrrpRouteMetric' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Metric of this route.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.7.1.8
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Metric of this route.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpRouteRoutingTable' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Routing table where to route should be inserted.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.7.1.13
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Routing table where to route should be inserted.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpRouteScope' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Scope of this route.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.7.1.9
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Scope of this route.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpRouteSecondaryGateway' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+An optional second gateway for the given destination.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.7.1.6
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+An optional second gateway for the given destination.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpRouteSource' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Which source IP address to use with this route.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.7.1.7
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Which source IP address to use with this route.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpRouteStatus' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Is this route set in the kernel?
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.7.1.14
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Is this route set in the kernel?
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpRouteTable' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Table of static and virtual routes.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+table
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.7
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Table of static and virtual routes.
+</property>
+</object>
+<object id='vrrpRouteType' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Kind of route.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.7.1.10
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Kind of route.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpScriptCommand' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Command executed when running the script.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.8.1.3
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Command executed when running the script.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpScriptEntry' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Information describing a VRRP script
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+row
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.8.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Information describing a VRRP script
+</property>
+</object>
+<object id='vrrpScriptFall' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+How many times the script should fail before KO.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.8.1.8
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+How many times the script should fail before KO.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpScriptIndex' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Script index.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.8.1.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Script index.
+</property>
+<property type="string" id="access" mode="w" >
+noaccess
+</property>
+</object>
+<object id='vrrpScriptInterval' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Interval between two runs of the script.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.8.1.4
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Interval between two runs of the script.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpScriptName' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Symbolic name of the script.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.8.1.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Symbolic name of the script.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpScriptResult' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Current status of the script.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.8.1.6
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Current status of the script.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpScriptRise' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+How many times the script should succeed before OK.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.8.1.7
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+How many times the script should succeed before OK.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpScriptTable' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Table of VRRP scripts
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+table
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.8
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Table of VRRP scripts
+</property>
+</object>
+<object id='vrrpScriptWeight' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Weight of the script if successful.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.8.1.5
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Weight of the script if successful.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpSyncGroupEntry' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Information describing a sync group
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+row
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.1.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Information describing a sync group
+</property>
+</object>
+<object id='vrrpSyncGroupIndex' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Index of the synchronisation group.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.1.1.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Index of the synchronisation group.
+</property>
+<property type="string" id="access" mode="w" >
+noaccess
+</property>
+</object>
+<object id='vrrpSyncGroupMemberEntry' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Information describing a member of a sync group
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+row
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.2.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Information describing a member of a sync group
+</property>
+</object>
+<object id='vrrpSyncGroupMemberInstanceIndex' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Index of an instance in a synchronisation group.
+There is no relation with this index and the index of the
+corresponding instance in vrrpInstanceTable. Use the name
+to find out the corresponding instance.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.2.1.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Index of an instance in a synchronisation group.
+There is no relation with this index and the index of the
+corresponding instance in vrrpInstanceTable. Use the name
+to find out the corresponding instance.
+</property>
+<property type="string" id="access" mode="w" >
+noaccess
+</property>
+</object>
+<object id='vrrpSyncGroupMemberName' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Name of the instance contained in the synchronisation group.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.2.1.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Name of the instance contained in the synchronisation group.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpSyncGroupMemberTable' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Table of instances contained in sync groups
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+table
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Table of instances contained in sync groups
+</property>
+</object>
+<object id='vrrpSyncGroupName' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Name of the synchronisation group.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.1.1.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Name of the synchronisation group.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpSyncGroupNotifyExec' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Will we execute notification script for this group?
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.1.1.5
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Will we execute notification script for this group?
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpSyncGroupScript' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Script to execute whenever a state change occurs.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.1.1.9
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Script to execute whenever a state change occurs.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpSyncGroupScriptBackup' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Script to execute when the group becomes backup.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.1.1.7
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Script to execute when the group becomes backup.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpSyncGroupScriptFault' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Script to execute when the group is in fault state.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.1.1.8
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Script to execute when the group is in fault state.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpSyncGroupScriptMaster' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Script to execute when the group becomes master.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.1.1.6
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Script to execute when the group becomes master.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpSyncGroupSmtpAlert' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Will SMTP alert be sent for this synchronisation group?
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.1.1.4
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Will SMTP alert be sent for this synchronisation group?
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpSyncGroupState' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Current state of the synchronisation group.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.1.1.3
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Current state of the synchronisation group.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpSyncGroupTable' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Table of sync groups
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+table
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Table of sync groups
+</property>
+</object>
+<object id='vrrpTrackedInterfaceEntry' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Information describing a tracked interface
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+row
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.4.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Information describing a tracked interface
+</property>
+</object>
+<object id='vrrpTrackedInterfaceName' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Name of the tracked interface.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.4.1.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Name of the tracked interface.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpTrackedInterfaceTable' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Table of tracked interfaces for each VRRP instance.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+table
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.4
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Table of tracked interfaces for each VRRP instance.
+</property>
+</object>
+<object id='vrrpTrackedInterfaceWeight' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Weight of the tracked interface.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.4.1.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Weight of the tracked interface.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpTrackedScriptEntry' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Information describing a tracked script
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+row
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.5.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Information describing a tracked script
+</property>
+</object>
+<object id='vrrpTrackedScriptIndex' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Index of the tracked script in the set of tracked scripts for
+the given VRRP instance. This index has no relation with the
+index of vrrpScriptTable.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.5.1.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Index of the tracked script in the set of tracked scripts for
+the given VRRP instance. This index has no relation with the
+index of vrrpScriptTable.
+</property>
+<property type="string" id="access" mode="w" >
+noaccess
+</property>
+</object>
+<object id='vrrpTrackedScriptName' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Name of the tracked interface.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.5.1.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Name of the tracked interface.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpTrackedScriptTable' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Table of tracked interfaces for each VRRP instance.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+table
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.5
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Table of tracked interfaces for each VRRP instance.
+</property>
+</object>
+<object id='vrrpTrackedScriptWeight' module='Products.ZenModel.MibNode' class='MibNode'>
+<property id='zendoc' type='string'>
+Weight of the tracked interface.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+column
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.5.1.3
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+Weight of the tracked interface.
+</property>
+<property type="string" id="access" mode="w" >
+readonly
+</property>
+</object>
+<object id='vrrpTrap' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.9
+</property>
+</object>
+<object id='vrrpTrapControl' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.9.1
+</property>
+</object>
+<object id='vrrpTraps' module='Products.ZenModel.MibNode' class='MibNode'>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+node
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.9.0
+</property>
+</object>
+</tomanycont>
+<tomanycont id='notifications'>
+<object id='realServerStateChange' module='Products.ZenModel.MibNotification' class='MibNotification'>
+<property id='zendoc' type='string'>
+This trap signifies that the state of a real server has
+changed. Additional varbinds will be added depending on the
+value of virtualServerType: virtualServerNameOfGroup,
+virtualServerFwMark, virtualServerAddrType,
+virtualServerAddress, virtualServerPort.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+notification
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.5.0.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+This trap signifies that the state of a real server has
+changed. Additional varbinds will be added depending on the
+value of virtualServerType: virtualServerNameOfGroup,
+virtualServerFwMark, virtualServerAddrType,
+virtualServerAddress, virtualServerPort.
+</property>
+<property type="lines" id="objects" mode="w" >
+{'virtualServerRealServersUp': {'nodetype': 'object', 'module': 'KEEPALIVED-MIB'}, 'realServerAddrType': {'nodetype': 'object', 'module': 'KEEPALIVED-MIB'}, 'realServerStatus': {'nodetype': 'object', 'module': 'KEEPALIVED-MIB'}, 'realServerPort': {'nodetype': 'object', 'module': 'KEEPALIVED-MIB'}, 'virtualServerType': {'nodetype': 'object', 'module': 'KEEPALIVED-MIB'}, 'realServerAddress': {'nodetype': 'object', 'module': 'KEEPALIVED-MIB'}, 'routerId': {'nodetype': 'object', 'module': 'KEEPALIVED-MIB'}, 'virtualServerProtocol': {'nodetype': 'object', 'module': 'KEEPALIVED-MIB'}, 'virtualServerRealServersTotal': {'nodetype': 'object', 'module': 'KEEPALIVED-MIB'}}
+</property>
+</object>
+<object id='virtualServerQuorumStateChange' module='Products.ZenModel.MibNotification' class='MibNotification'>
+<property id='zendoc' type='string'>
+This trap signifies that the quorum of a virtual server has
+changed. Additional varbinds will be added depending on the
+value of virtualServerType: virtualServerNameOfGroup,
+virtualServerFwMark, virtualServerAddrType,
+virtualServerAddress, virtualServerPort.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+notification
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.3.5.0.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+This trap signifies that the quorum of a virtual server has
+changed. Additional varbinds will be added depending on the
+value of virtualServerType: virtualServerNameOfGroup,
+virtualServerFwMark, virtualServerAddrType,
+virtualServerAddress, virtualServerPort.
+</property>
+<property type="lines" id="objects" mode="w" >
+{'virtualServerRealServersUp': {'nodetype': 'object', 'module': 'KEEPALIVED-MIB'}, 'virtualServerProtocol': {'nodetype': 'object', 'module': 'KEEPALIVED-MIB'}, 'virtualServerQuorum': {'nodetype': 'object', 'module': 'KEEPALIVED-MIB'}, 'routerId': {'nodetype': 'object', 'module': 'KEEPALIVED-MIB'}, 'virtualServerType': {'nodetype': 'object', 'module': 'KEEPALIVED-MIB'}, 'virtualServerRealServersTotal': {'nodetype': 'object', 'module': 'KEEPALIVED-MIB'}, 'virtualServerQuorumStatus': {'nodetype': 'object', 'module': 'KEEPALIVED-MIB'}}
+</property>
+</object>
+<object id='vrrpInstanceStateChange' module='Products.ZenModel.MibNotification' class='MibNotification'>
+<property id='zendoc' type='string'>
+This trap signifies that the state of a vrrp instance changed.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+notification
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.9.0.2
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+This trap signifies that the state of a vrrp instance changed.
+</property>
+<property type="lines" id="objects" mode="w" >
+{'routerId': {'nodetype': 'object', 'module': 'KEEPALIVED-MIB'}, 'vrrpInstanceName': {'nodetype': 'object', 'module': 'KEEPALIVED-MIB'}, 'vrrpInstanceState': {'nodetype': 'object', 'module': 'KEEPALIVED-MIB'}, 'vrrpInstanceInitialState': {'nodetype': 'object', 'module': 'KEEPALIVED-MIB'}}
+</property>
+</object>
+<object id='vrrpSyncGroupStateChange' module='Products.ZenModel.MibNotification' class='MibNotification'>
+<property id='zendoc' type='string'>
+This trap signifies that the state of the whole vrrp sync
+group changed.
+</property>
+<property type="string" id="moduleName" mode="w" >
+KEEPALIVED-MIB
+</property>
+<property type="string" id="nodetype" mode="w" >
+notification
+</property>
+<property type="string" id="oid" mode="w" >
+1.3.6.1.4.1.9586.100.5.2.9.0.1
+</property>
+<property type="string" id="status" mode="w" >
+current
+</property>
+<property type="string" id="description" mode="w" >
+This trap signifies that the state of the whole vrrp sync
+group changed.
+</property>
+<property type="lines" id="objects" mode="w" >
+{'vrrpSyncGroupName': {'nodetype': 'object', 'module': 'KEEPALIVED-MIB'}, 'routerId': {'nodetype': 'object', 'module': 'KEEPALIVED-MIB'}, 'vrrpSyncGroupState': {'nodetype': 'object', 'module': 'KEEPALIVED-MIB'}}
+</property>
+</object>
+</tomanycont>
+</object>
+</objects>

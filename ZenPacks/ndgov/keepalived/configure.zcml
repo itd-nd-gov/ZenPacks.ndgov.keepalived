@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    >
+
+    <!-- API: Info Adapters -->
+
+    <adapter
+        provides=".KeepalivedDevice.IKeepalivedDeviceInfo"
+        for=".KeepalivedDevice.KeepalivedDevice"
+        factory=".KeepalivedDevice.KeepalivedDeviceInfo"
+        />
+
+    <adapter
+        provides=".RealServer.IRealServerInfo"
+        for=".RealServer.RealServer"
+        factory=".RealServer.RealServerInfo"
+        />
+
+    <adapter
+        provides=".VirtualServer.IVirtualServerInfo"
+        for=".VirtualServer.VirtualServer"
+        factory=".VirtualServer.VirtualServerInfo"
+        />
+
+
+    <!-- Browser Resources -->
+    <browser:resourceDirectory
+        name="ZenPacks_ndgov_keepalived"
+        directory="resources"
+        />
+
+    <!-- JavaScript needed for all Zenoss pages. -->
+    <browser:viewlet
+        name="js-ZenPacks_ndgov_keepalived"
+        paths="/++resource++ZenPacks_ndgov_keepalived/js/ZenPacks_ndgov_keepalived.js"
+        for="*"
+        weight="20"
+        manager="Products.ZenUI3.browser.interfaces.IJavaScriptSrcManager"
+        class="Products.ZenUI3.browser.javascript.JavaScriptSrcBundleViewlet"
+        permission="zope2.Public"
+        />
+
+</configure>
