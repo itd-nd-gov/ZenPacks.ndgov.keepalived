@@ -8,7 +8,7 @@ This is a Zenoss ZenPack that gathers some statistics from Keepalived.
 * It models real servers
 * It collects networking metrics for each real and virtual server. (Same as what you get in ipvsadm -L and --stats)
 
-This zenpack uses the SNMP capabilities that we added in keepalived 1.2.8. Testing so far shows that long term usage of this feature is flakey and so Zenoss data is spotty.
+This zenpack uses the SNMP capabilities that we added in keepalived 1.2.8. 
 
 
 ## Prerequisites
